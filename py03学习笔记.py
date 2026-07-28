@@ -11,6 +11,8 @@ b = 1.1
 c = "1"
 
 # bool 布尔类型
+
+
 d = True
 e = False
 
@@ -1405,3 +1407,117 @@ for i in zip(li,li2):
     #->(1,'a') (2,'b') (3,'c')
 #如果元素个数不一致，按长度最短的返回
 print(list(zip(li,li2,range(5))))
+
+#python
+#抛出异常
+#1.创建一个Exception("xxx")对象，xxx---异常提示信息
+#2.用raise抛出这个对象(异常对象)
+
+
+#raise Exception("bingbing抛出了一个异常")
+
+def funa():
+    print("hhh,笑死我了")
+    raise Exception("bingbing抛出了一个异常")
+    #如果print()在Exseption后则不会执行，因为，当执行到Exception时程序结束，将不会执行print
+
+#funa()这会导致这个文件报错，所以我加#，上同
+#执行了raise语法，后面代码不会往下执行
+
+#需求：密码长度不足，就Exception
+#分析：请用户输入密码，判断输入的长度是否大于六，如果输入不足六位，就报错，即抛出自定义异常，并不捕获该异常
+def login(p)
+    pwd = input("请输入您的密码:")
+    if len(pwd)>=6:#当密码大于等于六，不报错
+        if pwd == p:
+            print(True)
+        else:
+            print(False)
+    else:
+        e = Exception("密码长度不足")
+        raise e
+        #或这样写：raise Exception("密码长度不足")
+login(123456)
+
+try:
+    print(login(123456))
+
+except Exception as e:#as是别名的意思，就是把Exception这么长变成e
+    print(e)
+    #现在只输出错误，不报错，程序还能继续运行
+print(7891)#继续执行出来
+
+#捕获异常是为了检测到异常时，代码还能继续往下运行，即程序不会终止
+
+#模块
+#含义：一个py文件就是一个模块，即导入一个模块本质是就是执行一个py文件
+#内置模块（标准库，python的内置模块很强大）
+#如 random time os logging直接导入即可
+#第三方模块
+#通过包管理器安装(pip)，在cmd窗口运行
+"""
+pip install 模块名 #下载
+pip uninstall 模块名 #卸载
+pip list #查看所有模块
+
+"""
+#自定义模块
+#在项目中自己定义的模块
+#不要与内置模块命名冲突
+#如果你觉得自己的模块写的很好，可以考虑上传到pip官网，供人下载，或pip可以安装git仓库的模块
+
+#导入模块
+#import 模块名
+#as别名，上面提过
+#import 模块名 as a
+#这个模块就被当做a处理了，a就是这个模块，这时再调用原模块名会报错
+
+"""
+pytest.py
+print("这是pytest模块")
+name="bingbing"
+def funa():
+    print("这是pytest模块中的funa")
+def funb():
+    print("这是pytest模块中的funb")
+
+"""
+#由于pytest文件不真的存在，以下代码用三引号包裹
+
+#注意，所有的import最好放在文件开头，提升可读性
+
+"""
+import pytest
+#调用pytest中的name变量
+print(pytest.name)
+#调用pytest中的funa函数
+print(pytest.funa())
+
+from pytest import funb
+funb()#不需加pytest.
+#这种方法适合模块太大，导入太多无关紧要的东西，会导致程序运行缓慢
+
+from pytest import *
+#导入全部,*代表全部
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
